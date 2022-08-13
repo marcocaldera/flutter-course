@@ -6,9 +6,7 @@
 
 </details>
 
-#### Flutter does NOT use platform primitives
-
-unlike react native.
+#### Flutter does NOT use platform primitives unlike react native.
 
 <details><summary>Schema</summary>
 
