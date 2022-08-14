@@ -13,3 +13,11 @@
 ![No primitives](assets/no-primitives.png)
 
 </details>
+
+#### Flutter does NOT use platform primitives unlike react native.
+
+<details><summary>Stateless vs Stateful Widget</summary>
+
+![No primitives](assets/stateless-stateful.png)
+
+</details>
