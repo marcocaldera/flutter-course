@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_quiz/result.dart';
 
-import './question.dart';
-import './answer.dart';
+import './quiz.dart';
 
 // const = compile time constant - never change
 // final = running time constant - never change at runtime
@@ -16,7 +16,21 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var _questionIndex = 0;
+  final _questions = [
+    {
+      "questionText": "What's your favorite color?",
+      "answers": ["Black", "Red", "Green", "White"],
+    },
+    {
+      "questionText": "What's your favorite animal?",
+      "answers": ["Rabbit", "Snake", "Elephant", "Lion"],
+    },
+    {
+      "questionText": "Who's your favorite instructor?",
+      "answers": ["Marco", "Max"],
+    },
+  ];
+  int _questionIndex = 0;
 
   void _answerQuestion() {
     setState(() {
@@ -26,36 +40,18 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    const questions = [
-      {
-        "questionText": "What's your favorite color?",
-        "answers": ["Black", "Red", "Green", "White"],
-      },
-      {
-        "questionText": "What's your favorite animal?",
-        "answers": ["Rabbit", "Snake", "Elephant", "Lion"],
-      },
-      {
-        "questionText": "Who's your favorite instructor?",
-        "answers": ["Marco", "Max"],
-      },
-    ];
-
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: const Text("My First App"),
         ),
-        body: Column(
-          children: [
-            Question(
-              questionText: questions[_questionIndex]["questionText"] as String,
-            ),
-            ...(questions[_questionIndex]["answers"] as List<String>)
-                .map((answer) => Answer(_answerQuestion, answer))
-                .toList(),
-          ],
-        ),
+        body: _questionIndex < _questions.length
+            ? Quiz(
+                questions: _questions,
+                answerQuestion: _answerQuestion,
+                questionIndex: _questionIndex,
+              )
+            : Result(),
       ),
     );
   }
