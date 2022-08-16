@@ -6,7 +6,7 @@
 
 </details>
 
-#### Flutter does NOT use platform primitives unlike react native.
+#### Flutter does NOT use platform primitives unlike react native
 
 <details><summary>Schema</summary>
 
@@ -14,9 +14,9 @@
 
 </details>
 
-#### Flutter does NOT use platform primitives unlike react native.
+#### Stateless vs Stateful Widget
 
-<details><summary>Stateless vs Stateful Widget</summary>
+<details><summary>Schema</summary>
 
 ![No primitives](assets/stateless-stateful.png)
 
